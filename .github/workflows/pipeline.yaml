@@ -1,0 +1,25 @@
+name: Ci Pipeline
+
+
+on:
+push: [main]
+
+jobs:
+build:
+runs-on: ubantu-latest
+
+steps:
+- name: Checkout code
+uses: actions/checkout@v5
+
+-name: Setup node.js
+uses: action/setup-node@v3
+with: 
+      node-version:16
+
+-name: Install dependencies
+run : npm install
+
+-name: Run Tests
+run: npm test
+
